@@ -13,12 +13,13 @@ buildscript {
         kotlinVersion = '1.3.0'
         springBootVersion = '2.0.4.RELEASE'
         openFeignVersion = "2.0.0.RC1"
-        releaseRepo = "http://artifactory.cpic.tcu.gov.br/artifactory/libs-release"
-        snapshotRepo = "http://artifactory.cpic.tcu.gov.br/artifactory/libs-snapshot"
+//        releaseRepo = "http://artifactory.cpic.tcu.gov.br/artifactory/libs-release"
+//        snapshotRepo = "http://artifactory.cpic.tcu.gov.br/artifactory/libs-snapshot"
         repos = {
-            mavenLocal()
-            maven { url releaseRepo }
-            maven { url snapshotRepo }
+		    mavenCentral()
+//            mavenLocal()
+//            maven { url releaseRepo }
+//            maven { url snapshotRepo }
         }
     }
     dependencies {
@@ -30,9 +31,9 @@ buildscript {
     repositories project.repos
 }
 
-ext {
-    springCloudVersion = 'Finchley.M9'
-}
+//ext {
+//    springCloudVersion = 'Finchley.M9'
+//}
 
 // group corresponde ao groupId do maven. O artifactId do maven corresponde ao nome do projeto em settings.gradle
 group = 'pmerson.apps'
@@ -76,13 +77,13 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-undertow"
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile "org.springframework.boot:spring-boot-starter-web"
-    compile 'org.springframework.cloud:spring-cloud-starter-config'
-    compile 'org.springframework.cloud:spring-cloud-starter-openfeign'
-    compile group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '2.0.2'  // p/ lib-spring-rest-comum funcionar com boot 2
+//    compile 'org.springframework.cloud:spring-cloud-starter-config'
+//    compile 'org.springframework.cloud:spring-cloud-starter-openfeign'
+//    compile group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '2.0.2'  // p/ lib-spring-rest-comum funcionar com boot 2
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     compile "org.jetbrains.kotlin:kotlin-reflect"
-    compile 'br.gov.tcu.libs-tcu:infra-arq-ms-rest:1.0.11'
-    compile "com.google.guava:guava:20.0"    // springfox 2.9.x requires guava 20.0 or later
+//    compile 'br.gov.tcu.libs-tcu:infra-arq-ms-rest:1.0.11'
+//    compile "com.google.guava:guava:20.0"    // springfox 2.9.x requires guava 20.0 or later
     compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
@@ -94,10 +95,10 @@ test {
     }
 }
 
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-        mavenBom("org.springframework.cloud:spring-cloud-openfeign:${openFeignVersion}")
-    }
-}
+//dependencyManagement {
+//    imports {
+//        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+//        mavenBom("org.springframework.cloud:spring-cloud-openfeign:${openFeignVersion}")
+//    }
+//}
 

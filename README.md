@@ -16,12 +16,18 @@ Hello World microservice to give a simple example of the use of:
 #### Build
 `gradlew build`
 
-#### Build with docker 
-    docker run --rm -e "SPRING_PROFILES_ACTIVE=dev" -v c:/sti/repo_maven_local:/repository -v C:/sti/fontes-tcu/git/sofia-ms:/home/gradle/project -w /home/gradle/project gradle:4.8.1-jdk8-alpine gradle build
+#### Create docker image
+docker build -t pmerson/hello-boot-kotlin:latest .
 
-#### Build with docker 
-    docker run --rm -e "SPRING_PROFILES_ACTIVE=dev" -v c:/sti/repo_maven_local:/repository -v C:/sti/fontes-tcu/git/sofia-ms:/home/gradle/project -w /home/gradle/project gradle:4.8.1-jdk8-alpine gradle build
+#### Run with docker 
+docker run -d  -p 80:8080 -e "SPRING_PROFILES_ACTIVE=dev" pmerson/hello-boot-kotlin:latest
     
 #### Dependency hierarchy
 Run `gradlew htmlDependencyReport` to generate an HTML report with the dependency hierarchy.
 
+#### Calling using curl
+curl --data "Paulo" --header "Content-Type: text/plain" --request POST http://localhost:80/api/greeting
+
+#### Stop the container
+docker ps
+docker stop *containerId*
