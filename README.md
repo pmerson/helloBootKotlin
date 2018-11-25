@@ -31,4 +31,5 @@ docker ps
 docker stop *containerId*
 ```
 
-
+#### Push to docker hub
+`docker push pmerson/hello-boot-kotlin:latest`
