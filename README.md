@@ -17,17 +17,16 @@ Hello World microservice to give a simple example of the use of:
 `gradlew build`
 
 #### Create docker image
-docker build -t pmerson/hello-boot-kotlin:latest .
+`docker build -t pmerson/hello-boot-kotlin:latest .`
 
-#### Run with docker 
-docker run -d  -p 80:8080 -e "SPRING_PROFILES_ACTIVE=dev" pmerson/hello-boot-kotlin:latest
+#### Run with docker
+`docker run -d  -p 80:8080 -e "SPRING_PROFILES_ACTIVE=dev" pmerson/hello-boot-kotlin:latest`
     
-#### Dependency hierarchy
-Run `gradlew htmlDependencyReport` to generate an HTML report with the dependency hierarchy.
-
 #### Calling using curl
-curl --data "Paulo" --header "Content-Type: text/plain" --request POST http://localhost:80/api/greeting
+`curl --data "Paulo" --header "Content-Type: text/plain" --request POST http://localhost:80/api/greeting`
 
 #### Stop the container
-docker ps
-docker stop *containerId*
+`docker ps`
+`docker stop *containerId*`
+
+
