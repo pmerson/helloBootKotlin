@@ -26,7 +26,9 @@ Hello World microservice to give a simple example of the use of:
 `curl --data "Paulo" --header "Content-Type: text/plain" --request POST http://localhost:80/api/greeting`
 
 #### Stop the container
-`docker ps`
-`docker stop *containerId*`
+```
+docker ps
+docker stop *containerId*
+```
 
 
