@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletResponse
 @RequestMapping("api")
 class HelloWorld(val greetingService: GreetingService) {
 
-//    @PostMapping("/validacao-documento")
     @RequestMapping(value = ["/greeting"], method = [RequestMethod.POST],
             headers = ["content-type=text/plain"])
     fun sayHello(@RequestBody name: String?, response: HttpServletResponse): ResponseEntity<GreetingDto> {
