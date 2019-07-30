@@ -6,8 +6,8 @@ import org.springframework.context.annotation.ComponentScan
 
 @SpringBootApplication
 @ComponentScan(basePackages = ["pmerson"])
-class Aplicacao
+class Application
 
-    fun main(args: Array<String>) {
-        runApplication<Aplicacao>(*args)
-    }
+fun main(args: Array<String>) {
+    runApplication<Application>(*args)
+}
