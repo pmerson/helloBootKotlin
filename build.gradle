@@ -10,7 +10,7 @@ apply plugin: 'project-report'
 
 buildscript {
     ext {
-        kotlinVersion = '1.3.0'
+        kotlinVersion = '1.4.0'
         springBootVersion = '2.1.3.RELEASE'
         openFeignVersion = "2.0.0.RC1"
 //        releaseRepo = "http://artifactory.cpic.tcu.gov.br/artifactory/libs-release"

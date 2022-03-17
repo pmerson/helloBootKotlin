@@ -28,7 +28,7 @@ Hello World microservice to give a simple example of the use of:
 #### Stop the container
 ```
 docker ps
-docker stop *containerId*
+docker stop <containerId>
 ```
 
 #### Run with docker mounting a volume
@@ -36,4 +36,19 @@ docker stop *containerId*
     
 
 #### Push to docker hub
-`docker push pmerson/hello-boot-kotlin:latest`
+`docker push pmerson/hello-boot-kotlin`
+It's the same as:
+`docker push docker.io/pmerson/hello-boot-kotlin:latest`
+
+#### Pull from docker hub
+`docker pull pmerson/hello-boot-kotlin:v2`
+
+#### List stopped containers
+`docker ps -a`
+
+#### Kill stopped containers
+`docker rm <containerId>`
+
+#### Remove image
+`docker image <rm imageId>`
+
