@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-ms-deploy
+  namespace: hello-ms-ns
+spec:
+  selector:
+    matchLabels:
+      app: hello-ms
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: hello-ms
+    spec:
+      containers:
+        - name: hello-ms
+          image: pmerson/hello-boot-kotlin
+          ports:
+            - containerPort: 80
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - topologyKey: "kubernetes.io/hostname"
+              labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                      - hello-ms

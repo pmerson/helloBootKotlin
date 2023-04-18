@@ -10,7 +10,7 @@ class GreetingService {
     fun createGreeting(name: String?): GreetingDto {
         val quote = File("data/quotes.txt").readText(Charsets.UTF_8)
         val dateTime = LocalDateTime.now()
-        if (name == null || name.isBlank()) {
+        if (name.isNullOrBlank()) {
             return GreetingDto("Hello mysterious user. What's your name?", dateTime, quote)
         }
         return GreetingDto("Hello $name!", dateTime, quote)
