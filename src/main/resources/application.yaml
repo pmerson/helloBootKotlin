@@ -5,7 +5,7 @@ spring:
     host: smtp.gmail.com
     port: 587
     username: aliceaw1865@gmail.com
-    password: "lwmr bnon hqpa ryfw"
+    password: "to-do"
     properties:
       mail:
         smtp:
@@ -19,7 +19,7 @@ spring:
 #    host: mail.gmx.com
 #    port: 587
 #    username: cmuediss@gmx.com
-#    password: "A3Ediss2024"
+#    password: "to-do"
 #    properties:
 #      mail:
 #        smtp:
@@ -34,7 +34,7 @@ spring:
 #    host: smtp.mailfence.com
 #    port: 465
 #    username: cmuediss@mailfence.com
-#    password: "A3Ediss2024_"
+#    password: "TO-DO"
 #    properties:
 #      mail:
 #        smtp:
@@ -51,7 +51,7 @@ spring:
 #    host: smtp.gmail.com
 #    port: 587
 #    username: paulomerson@gmail.com
-#    password: "onmi cgoh azrj fkzf"
+#    password: "TO-DO"
 #    properties:
 #      mail:
 #        smtp:
