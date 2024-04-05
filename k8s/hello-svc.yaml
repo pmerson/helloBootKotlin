@@ -1,13 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello-ms-svc
-  namespace: hello-ms-ns
+  name: hello-svc
+  namespace: bookstore-ns
 spec:
   selector:
     app: hello-ms
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 80
-  type: ClusterIP
+      targetPort: 8080
+  type: NodePort
+#  type: ClusterIP

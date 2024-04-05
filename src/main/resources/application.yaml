@@ -1,0 +1,60 @@
+# Gmail works, but for this account had to first visit:
+# https://myaccount.google.com/apppasswords
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: aliceaw1865@gmail.com
+    password: "lwmr bnon hqpa ryfw"
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+#sender address not allowed
+#spring:
+#  mail:
+#    host: mail.gmx.com
+#    port: 587
+#    username: cmuediss@gmx.com
+#    password: "A3Ediss2024"
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
+
+
+
+#spring:
+#  mail:
+#    host: smtp.mailfence.com
+#    port: 465
+#    username: cmuediss@mailfence.com
+#    password: "A3Ediss2024_"
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
+#          ssl:
+#            enable: true
+# requires paid subscription
+
+# Gmail works
+#spring:
+#  mail:
+#    host: smtp.gmail.com
+#    port: 587
+#    username: paulomerson@gmail.com
+#    password: "onmi cgoh azrj fkzf"
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true

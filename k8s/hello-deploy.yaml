@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-ms-deploy
-  namespace: hello-ms-ns
+  name: hello-deploy
+  namespace: bookstore-ns
 spec:
   selector:
     matchLabels:
@@ -13,11 +13,15 @@ spec:
       labels:
         app: hello-ms
     spec:
+      priorityClassName: high-priority
       containers:
         - name: hello-ms
           image: pmerson/hello-boot-kotlin
           ports:
-            - containerPort: 80
+            - containerPort: 8080
+          env:
+            - name: URL_BASE_RECOMMENDATION
+              value: TO-DO
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:

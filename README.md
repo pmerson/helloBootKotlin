@@ -21,8 +21,12 @@ Hello World microservice to give a simple example of the use of:
 
 #### Run with docker
 `docker run -d -p 80:8080 -e "SPRING_PROFILES_ACTIVE=dev" pmerson/hello-boot-kotlin:latest`
-    
-#### Calling using curl
+
+#### Run the image opening the shell and overriding the entrypoint
+`docker run -p 80:8080 -e "SPRING_PROFILES_ACTIVE=dev" -it --entrypoint /bin/sh pmerson/hello-boot-kotlin:latest`
+docker run -p 80:8080 -e "SPRING_PROFILES_ACTIVE=dev" -it pmerson/hello-boot-kotlin:latest /bin/sh
+   
+#### Calling using curl on Windows prompt
 `curl --data "Paulo" --header "Content-Type: text/plain" --request POST http://localhost:80/api/greeting`
 
 #### Stop the container
@@ -35,6 +39,8 @@ docker stop <containerId>
 `docker run -d -p 80:8080 -e "SPRING_PROFILES_ACTIVE=dev" --rm -v c:/TEMP:/data pmerson/hello-boot-kotlin:latest`
 
 `docker run -d -p 80:8080 -e "SPRING_PROFILES_ACTIVE=dev" --rm -v c:/saturn/helloBootKotlin/data:/data pmerson/hello-boot-kotlin:latest`
+
+
     
 
 #### Push to docker hub
@@ -45,6 +51,9 @@ It's the same as:
 
 #### Pull from docker hub
 `docker pull pmerson/hello-boot-kotlin:v2`
+
+#### Create an image with different tag
+`docker tag pmerson/hello-boot-kotlin pmerson/hello-boot-kotlin:v2`
 
 #### List stopped containers
 `docker ps -a`
@@ -71,7 +80,7 @@ It's the same as:
 #### Test if there's any pod running
 `kubectl get pods`
 
-`kubectl get pods -n hello-ms-ns`
+`kubectl get pods -n bookstore-ns`
 
 #### If you see access denied errors...
 `aws sts get-caller-identity --query Arn`
@@ -79,17 +88,17 @@ It's the same as:
 #### Create the namespace
 `kubectl get namespaces`
 
-`kubectl apply -f k8s/hello-ms-ns.yaml`
+`kubectl apply -f k8s/bookstore-ns.yaml`
 
 #### Create the K8S service 
-`kubectl get services -n hello-ms-ns`
+`kubectl get services -n bookstore-ns`
 
-`kubectl apply -f k8s/hello-ms-svc-lb.yaml`
+`kubectl apply -f k8s/hello-svc-lb.yaml`
 
 #### Create the K8S deployment, which defines the pod
-`kubectl get pods -n hello-ms-ns`
+`kubectl get pods -n bookstore-ns`
 
-`kubectl apply -f k8s/hello-ms-deploy.yaml`
+`kubectl apply -f k8s/hello-deploy.yaml`
 
 #### To access the service
 `kubectl get services`

@@ -7,27 +7,27 @@ import org.springframework.beans.factory.annotation.Value
 import feign.jackson.JacksonEncoder
 import feign.jackson.JacksonDecoder
 import org.springframework.stereotype.Component
+import pmerson.hello.application.BookDto
 
 
 @Component
-class RecommendationClient {
+class BookClient {
 
-    @Value("\${URL_BASE_RECOMMENDATION:http://localhost:3000}")
+    @Value("\${URL_BASE_BACKEND_SERVICES:http://localhost:3000}")
     lateinit var urlBase: String
 
     @Autowired
     private lateinit var mapper: ObjectMapper
 
-    fun getRecommendedTitlesByIsbn(isbn: String): List<RecommendationDto> {
-        println("---> Will call recommendations service at $urlBase --->")
-        return service().getRecommendedTitlesByIsbn(isbn)
+    fun getBookByIsbn(isbn: String): BookDto {
+        return service().getBookByIsbn(isbn)
     }
 
-    private fun service(): IRecommendationClient {
+    private fun service(): IBookClient {
         return Feign.builder()
                 .encoder(JacksonEncoder(mapper))
                 .decoder(JacksonDecoder(mapper))
-                .target(IRecommendationClient::class.java, urlBase)
+                .target(IBookClient::class.java, urlBase)
     }
 
 }

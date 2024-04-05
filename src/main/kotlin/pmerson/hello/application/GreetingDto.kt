@@ -5,5 +5,6 @@ import java.time.LocalDateTime
 class GreetingDto(
         var greeting: String,
         var dateTime: LocalDateTime,
-        var quote: String)
+        var quote: String,
+        var clientType: String?)
 

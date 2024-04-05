@@ -16,6 +16,6 @@ ARG USER=appUser
 ARG UID=1000
 RUN adduser --disabled-password --gecos $USER --uid $UID $USER
 ADD build/libs/hello-ms-0.0.1-SNAPSHOT.jar app.jar
-ADD data/quotes.txt data/quotes.txt
+ADD data/quotes.txt /data/quotes.txt
 RUN chown -R $USER .
 USER $USER
