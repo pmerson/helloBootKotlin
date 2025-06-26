@@ -19,8 +19,13 @@ class RecommendationClient {
     private lateinit var mapper: ObjectMapper
 
     fun getRecommendedTitlesByIsbn(isbn: String): List<RecommendationDto> {
-        println("---> Will call recommendations service at $urlBase --->")
-        return service().getRecommendedTitlesByIsbn(isbn)
+        println("*** Will call recommendations service at $urlBase ***")
+        try {
+            return service().getRecommendedTitlesByIsbn(isbn)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            throw e
+        }
     }
 
     private fun service(): IRecommendationClient {

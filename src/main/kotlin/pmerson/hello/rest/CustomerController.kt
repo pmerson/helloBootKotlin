@@ -24,7 +24,7 @@ class CustomerController(val emailer: Emailer) {
 
     @GetMapping("/customers/{id}")
     fun getCustomerById(@PathVariable id: Long): ResponseEntity<CustomerDto> {
-        println("--- Customer service on $ec2Instance got your GET customer ID $id ---")
+        println("*** Customer service on $ec2Instance got your GET customer ID $id ***")
         val customerDto = CustomerDto(id, "starlord2002@gmail.com", "Star Lord", "+14122144122",
                 "48 Galaxy Rd", "suite 4", "Fargo", "ND", "58102", ec2Instance)
         return ResponseEntity(customerDto, HttpStatus.OK)
@@ -39,7 +39,7 @@ class CustomerController(val emailer: Emailer) {
     }
 
     private fun sendEmail(customerDto: CustomerDto) {
-        println("---> will send email from $fromAddress ($pwd) to pmerson@acm.org --->")
+        println("*** will send email from $fromAddress ($pwd) to pmerson@acm.org ***")
         emailer.send(
                 "pmerson@acm.org",
                 "Activate your book store account",

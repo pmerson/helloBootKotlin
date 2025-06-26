@@ -13,10 +13,10 @@ spec:
       labels:
         app: hello-ms
     spec:
-      priorityClassName: high-priority
       containers:
         - name: hello-ms
           image: pmerson/hello-boot-kotlin
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           env:

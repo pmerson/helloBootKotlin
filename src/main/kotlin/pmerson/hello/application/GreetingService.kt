@@ -20,23 +20,15 @@ class GreetingService(val recommendationClient: RecommendationClient) {   // val
         } else if (name == "Voldemort") {
             throw IllegalAccessError("There's no talking to $name!")
         }
-
         var greeting = "Hello $name!"   //  from $ec2Instance!"
 
-        // Call to a backend service
-
-        println("*** WILL CALL THE RECOMMENDATIONS SERVICE BASED OF X-Client-Type HEADER ($clientType) ***")
-//        var recommendationDtos: List<RecommendationDto>? = null
-//        if (clientType == "Web")
-//            recommendationDtos = recommendationClient.getRecommendedTitlesByIsbn("9780321815736")  // DSA, EAI
-//        else if (clientType == "iOS" || clientType == "Android")
-//            recommendationDtos = recommendationClient.getRecommendedTitlesByIsbn("978-0395489321")  // The Hobbit
-
+        // Call to a backend service after testing
+        println("*** WILL CALL RECOMMENDATIONS SERVICE BASED ON X-Client-Type HEADER ($clientType) ***")
         val recommendationDtos =
                 if (clientType == "Web")
-                    recommendationClient.getRecommendedTitlesByIsbn("9780321815736")  // DSA, EAI
+                    recommendationClient.getRecommendedTitlesByIsbn("9780321815736")  // will reply DSA, EAI
                 else if (clientType == "iOS" || clientType == "Android")
-                    recommendationClient.getRecommendedTitlesByIsbn("978-0395489321")  // The Hobbit
+                    recommendationClient.getRecommendedTitlesByIsbn("978-0395489321")  // will reply The Hobbit
                 else
                     null
         recommendationDtos?.let { greeting = greeting + " We recomment this book: ${recommendationDtos[0].title}" }
@@ -47,6 +39,20 @@ class GreetingService(val recommendationClient: RecommendationClient) {   // val
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //        if (name.startsWith("book", true)) {

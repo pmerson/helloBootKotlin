@@ -17,7 +17,7 @@ class BookController(val bookRecommendationsService: BookRecommendationsService)
 
     @GetMapping("/books/{isbn}")
     fun getBookByIsbn(@PathVariable isbn: String): ResponseEntity<BookDto> {
-        println("--- Book service on $ec2Instance got your GET book ISBN $isbn ---")
+        println("*** Book service on $ec2Instance got your GET book ISBN $isbn ***")
         val bookDto = BookDto(isbn, "Software Architecture in Practice", "Bass, L.",
                 "seminal book on software architecture", "non-fiction", 59.95, 99, ec2Instance)
         return ResponseEntity(bookDto, HttpStatus.OK)

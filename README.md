@@ -24,7 +24,7 @@ Hello World microservice to give a simple example of the use of:
 
 #### Run the image opening the shell and overriding the entrypoint
 `docker run -p 80:8080 -e "SPRING_PROFILES_ACTIVE=dev" -it --entrypoint /bin/sh pmerson/hello-boot-kotlin:latest`
-docker run -p 80:8080 -e "SPRING_PROFILES_ACTIVE=dev" -it pmerson/hello-boot-kotlin:latest /bin/sh
+`docker run -p 80:8080 -it --entrypoint /bin/sh pmerson/hello-boot-kotlin:latest`
    
 #### Calling using curl on Windows prompt
 `curl --data "Paulo" --header "Content-Type: text/plain" --request POST http://localhost:80/api/greeting`
